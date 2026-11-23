@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=800">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Orabora">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#7b1a14">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <title>Orabora</title>
 <style>
 /* VOICE a classics department page kept by hand, c. 2002
@@ -291,6 +298,9 @@ function tick(){const now=new Date(),st=state(now),k=key(now)+bid(st.cur);if(las
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){if(bells)wake(true);tick()}});
 render();lastKey=key(new Date())+bid(state(new Date()).cur);setInterval(tick,15000);
 }
+</script>
+<script>
+if("serviceWorker" in navigator&&location.protocol==="https:"){window.addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})})}
 </script>
 </body>
 </html>
